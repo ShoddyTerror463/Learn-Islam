@@ -1,277 +1,274 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Landing page mosque</title>
-  <link rel="stylesheet" href="solution.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STMZ Landing Page</title>
 </head>
 <body>
-  <div class="header">
-    <div class="left">
-      <div class="logo">
-        Islamic Asylum
-      </div>
-      <ul class="links">
-        <li class="link">What is Islam?</li>
-        <li class="link">Why is it important?</li>
-        <li class="link">How to convert?</li>
-      </ul>
+    <div class="navbar">
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Contact</a>
     </div>
-    <div class="right">
-      <button class="notifications">
-        Volunteer
-      </button>
+
+    <h2 class="title">Welcome to the STMZ Market Place</h2>
+    <div class="con">
+        <img src="thunder.jpg" alt="Thunder" class="thunder">
+        <img src="thun2.jpg" alt="Thunder" class="thunder">
+        <img src="thun3.jpg" alt="Thunder" class="thunder">
+        <img src="thun.jpg" alt="Thunder" class="thunder">
     </div>
-  </div>
-<div class="all-top">
-  <div class="top">
-    <div class="array">
-      <h2 class="welcome">Hello & Welcome To Islam</h2> 
-      <div class="subtext">
-        <div>Islam is one of the fastest growing religions based around serving your creator {Allah}. It is also an Abrahamic religion stemming from Prophet Abraham.<p><div class="butt">Volunteer</div></p></div>
-      </div>
+    <div class="money">£10 per item</div>
+    <h2 class="bottom">At STMZ we make clothing as good as luxury but at the price of ordinary at our specially made labs we are the definition of affordable & breathable & expert clothing and wear</h2>
+    <button onclick="showSignUpArea()" class="button">Sign Up</button><h3 >~After you click the button remember to scroll down~</h3>
+    <button onclick="displayUserInfo()">Toggle User Info</button>
+
+    <div class="signup-area" id="signupArea">
+        <h2>Create an Account</h2>
+        <form>
+            <input type="text" id="nameInput" placeholder="Name">
+            <input type="email" id="emailInput" placeholder="Email">
+            <input type="password" id="passwordInput" placeholder="Password" onkeyup="checkPasswordStrength()">
+            <div id="passwordStrength"></div>
+            <button type="button" onclick="displayUserInfo()">Submit</button>
+        </form>
     </div>
-    <img src="prayer.jpg" alt="prayer" class="img"> 
-  </div>'
-</div>
-  <div class="middle">
-    <div class="k">
-    <h2 class="What">What can you expect from Islam?</h2>
-    <div class="container">
-      <div><img src="img-6.jpg" class="img-list"><div class="alt">Love and care no matter the situation your in</div></div>
-      <div><img src="item-7.jpg" class="img-list"><div class="alt">Food and Water given out at the care of others</div></div>
-      <div><img src="img-5.jpg" class="img-list"><div class="alt">Commited and devoted people to guide you on your path</div></div>
-      <div><img src="img-4.jpg" class="img-list"><div class="alt">A loving God and a amazing communtiy of Muslims at your side</div></div>
+
+    <div class="user-info" id="userInfoArea">
+        <h2>User Information</h2>
+        <p><strong>Name:</strong> <span id="nameDisplay"></span></p>
+        <p><strong>Email:</strong> <span id="emailDisplay"></span></p>
+        <p><strong>Password:</strong> <span id="passwordDisplay"></span></p>
     </div>
-  </div>
-  </div>
 
-  <div class="qot-con"><div class="qot"><div>“A white has no superiority over a black nor a black has any superiority over white except by piety and good actions.” -Prophet Muhammad (عَلَيْهِ ٱلسَّلَامُ)</div>”</div></div>
+    <div class="popup-container" id="cookiePopup">
+        <h3>Cookie Consent</h3>
+        <p>This website uses cookies to ensure you get the best experience. By using our site, you acknowledge that you have read and understand our <a href="cookies.mdm">Cookie Policy</a>.</p>
+        <button onclick="hideCookiePopup()">Accept</button>
+    </div>
+    <script>
+        console.log('HTMLBodyElement')
 
-  <div class="tel">
-  <div class = cont-l>
-  <div class = cont>
-    <div>Call us</div>
-    <div class="inter">if you need any help</div>
-  </div>
-  <div class="phone-con">
-  <div class="phone"><div class="phone-item">078379633</div></div>
-  </div>
-</div>
-</div>
+        function logButtonClick() {
+            console.log("Button clicked!");
+        }
 
-  <div class="endl"><div>Property of ShoddyTerror463</div></div>
+        function showSignUpArea() {
+            var signupArea = document.getElementById("signupArea");
+            signupArea.style.display = "block";
+        }
 
+        function displayUserInfo() {
+            var name = document.getElementById("nameInput").value;
+            var email = document.getElementById("emailInput").value;
+            var password = document.getElementById("passwordInput").value;
+
+            document.getElementById("nameDisplay").textContent = name;
+            document.getElementById("emailDisplay").textContent = email;
+            document.getElementById("passwordDisplay").textContent = password;
+
+            var userInfoArea = document.getElementById("userInfoArea");
+            userInfoArea.style.display = "block";
+        }
+
+        function checkPasswordStrength() {
+            var password = document.getElementById("passwordInput").value;
+            var passwordStrength = document.getElementById("passwordStrength");
+
+            // Reset password strength indicator
+            passwordStrength.innerHTML = "";
+
+            if (password.length === 0) {
+                return;
+            }
+
+            if (password.length < 6) {
+                passwordStrength.innerHTML = "Weak";
+                passwordStrength.style.color = "red";
+            } else if (password.length < 10) {
+                passwordStrength.innerHTML = "Strong";
+                passwordStrength.style.color = "orange";
+            } else {
+                passwordStrength.innerHTML = "Strongest";
+                passwordStrength.style.color = "green";
+            }
+        }
+
+        function hideCookiePopup() {
+            var cookiePopup = document.getElementById("cookiePopup");
+            cookiePopup.style.display = "none";
+        }
+    </script>
 </body>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+</html>
+
 <style>
 
-  :root {
-    
-  }
+    body {
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        background-image: url(background.jpg);
+    }
 
-  body
-   {margin: 0;background: #eee;font-family: Besley, serif;font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;}
+    .title {
+        display: flex;
+        justify-content: center;
+        background-color: rgb(45, 49, 50);
+        border-radius: 20px;
+        width: 500px;
+        color: rgb(204, 204, 7);
+    }
 
-  .header 
-  {background: white;border-bottom: 1px solid #ddd;box-shadow: 0 0 8px rgba(0,0,0,.1);}
+    .thunder {
+        width: 300px;
+        height: auto;
+        width: 300px;
+        height: 300px;
+        border-radius: 20px;
+    }
 
-  .profile-image
-   {background: rebeccapurple;box-shadow: inset 2px 2px 4px rgba(0,0,0,.5);border-radius: 50%;width: 48px;height: 48px;}
+    .con {
+        display: flex;
+        background-image: url('layer.jpg');
+        height: 500px;
+        justify-content: center;
+        align-items: center;
+        border: 15px solid rgb(57, 57, 57);
+        border-radius: 20px;
+        justify-content: space-around;
+    }
 
-   .logo {color: rebeccapurple;font-size: 32px;font-weight: 900;font-style: italic;}button {border: none;border-radius: 8px;background: rebeccapurple;color: white;padding: 8px 24px;}
+    .thunder:hover {
+        background-color: aqua ;
+    }
 
-  a {/* this removes the line under our links */text-decoration: none;}ul {list-style-type: none;}/* SOLUTION */.header {display: flex;justify-content: space-between;padding: 8px; }
-  
-  ul {
-    display: flex;
-    margin: 0;
-    padding: 0;
-    gap: 16px;
-  }
+    /* Styles for the navigation bar */
+    .navbar {
+        background-color: #333;
+        overflow: hidden;
+      }
+      
+      /* Style for the navigation links */
+      .navbar a {
+        float: left;
+        display: block;
+        color: #f2f2f2;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+      }
+      
+      /* Change the color of the navigation links when hovered */
+      .navbar a:hover {
+        background-color: #5fd6ebb9;
+        color: black;
+        border-radius: 20px;
+      }
 
-  .left, .right {display: flex;align-items: center;gap: 16px;}
+      .buy {
+        width: 90px;
+        height: 90px;
+        border-radius: 90px;
+        background-color: rgb(198, 134, 178);
+      }
 
-  /* Existing CSS code omitted for brevity */
+      .bottom {
+        color: rgb(255, 255, 255);
+        background-color: #34e54065;
+        border-radius: 10px;
+      }
+      
+      .money {
+        background-image: url(background.jpg);
+        filter: invert();
+        border:5px solid grey;
+        width: 200px;
+        height: 20px;
+        border-radius: 20px;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+      }
 
-.top {
-  display: flex;
-  align-items: flex-start;
-  background-color: bisque;
-  height: 400px;
-}
+      .money:hover {
+        filter: invert(100%);
+      }
 
-.img {
-  width: auto;
-  height: 300px;
-  margin-left: 50px;
-  border-radius: 25px;
-  margin-top: 50px;
-  border: 10px solid goldenrod;
-}
+      .thunder:hover {
+        filter: invert(100%);
+        text-shadow: red 20px;
+      }
 
-.subtext {
-  width: 500px;
-  height: 200px;
-}
+      .thunder:active{
+        filter: hue-rotate(500px);
+      }
 
-.array {
-  padding: 80px;
-}
+          /* Styles for the account sign-up area */
+    .signup-area {
+        display: none; /* Hide the sign-up area by default */
+        max-width: 400px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #f2f2f2;
+        border-radius: 5px;
+      }
+      
+      /* Styles for the form elements */
+      .signup-area input[type="text"],
+      .signup-area input[type="email"],
+      .signup-area input[type="password"] {
+        width: 100%;
+        margin-bottom: 10px;
+        padding: 10px;
+        border-radius: 3px;
+        border: 1px solid #ccc;
+      }
+      
+      .signup-area button {
+        width: 100%;
+        padding: 10px;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+      }
 
-.butt {
-  height: 30px;
-  width: 90px;
-  border-radius: 20px;
-  background-color: purple;
-  color: aliceblue;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+      .button {
+        width: 200px;
+        height: 100pxpx;
+        justify-content: center;
+        background-image: url(background.jpg);
+        filter: grayscale(100%);
+        border: 5px solid gray;
+      }
 
-.What {
-  display: flex;
-  justify-content: center;
-  text-decoration: underline;
-}
+      .popup-container {
+        position: fixed;
+        bottom: 20px;
+        left: 20px;
+        width: 300px;
+        padding: 20px;
+        background-color: #f2f2f2;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
 
-.img-list {
-  width: 200px;
-  height: 200px;
-  image-resolution: 1080px;
-  border-radius: 20px;
-  border: 5px solid rgb(21, 13, 13);
-}
+    .popup-container h3 {
+        margin-top: 0;
+    }
 
-.img-list:hover {
-  filter: sepia(100%);
-}
+    .popup-container p {
+        margin-bottom: 20px;
+    }
 
-.container {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.alt{
-  width:200px;
-  font: 15px;
-}
-
-.qot-con {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 30px;
-  background-color: grey;
-  height: 500px;
-  font-family: "Sofia", sans-serif;
-}
-
-.qot {
-  width: 600px;
-  height: auto;
-}
-
-.middle {
-  height: 500px;
-  justify-content: center;
-  align-items: center;
-}
-
-.con-end {
-  height: 100px;
-  width: 200px;
-  border-radius: 20px;
-  background-color: blanchedalmond;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
+    .popup-container button {
+        padding: 10px 20px;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+    }
 
 
-.endl {
-  height: 30px;
-  background-color: black;
-  color: white;
-  display: flex;
-  justify-content: center;
-}
-
-.tel {
-  height: 300px;
-  background-color: aliceblue;
-    display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.cont-l {
-  background-color: rgb(95, 134, 169);
-  width: 700px;
-  height: 100px;
-  border-radius: 20px;
-  align-items: center;
-  display: flex;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  font-size: 20px;
-}
-
-.cont {
-  margin-left: 50px;
-}
-
-.phone {
-  justify-content: flex-end;
-  margin-right: 50px;
-  margin-left: 200px;
-  background-color: rgb(1, 1, 1);
-  color: white;
-  border: 5px solid white;
-  width: 200px;
-  height: 50px;
-  border-radius: 20px;
-  justify-content: center;
-  align-items: center;
-}
-
-.phone-item {
-  display: flex;
-  justify-content: center;
-  align-content: center;
-}
-
-.b {
-  font-size: 60px;
-  font-family: "Sofia", sans-serif;
-}
-
-.link {
-  color:purple;
-  border: 3px solid black;
-  padding: 10px;
-  border-radius: 2px;
-  font-weight: 900;
-  font-style: italic;
-}
-
-.link:hover {
-  filter: grayscale(100%);
-}
-
-.inter {
-  font-size: 15px;
-}
 </style>
-
-<script>
-  console.log('Howdy')
-  console.warn('Sucurity bearch')
-  console.group('Hey','Hi','Love')
-</script>
-
-</html>
